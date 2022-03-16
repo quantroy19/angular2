@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { enemy } from '../models/enemy';
 
 @Component({
   selector: 'app-enemies',
@@ -7,21 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./enemies.component.css'],
 })
 export class EnemiesComponent implements OnInit {
-  enemies: Array<any> = [];
-  formEnemy: any = {
-    id: '',
-    name: '',
-    avatar: '',
-    heathling: '',
-    armure: '',
-  };
+  enemies: Array<enemy> = [];
+  formEnemy = new enemy();
+
   constructor(private http: HttpClient) {}
   ngOnInit(): void {
     this.http.get<any>('http://localhost:3000/enemies/').subscribe((data) => {
       this.enemies = data;
     });
   }
-  remove(enemy: any) {
+  remove(enemy: enemy) {
     this.http
       .delete(`http://localhost:3000/enemies/${enemy.id}`)
       .subscribe((data) => {
@@ -29,7 +25,7 @@ export class EnemiesComponent implements OnInit {
         // window.location.reload();
       });
   }
-  edit(enemy: any): void {
+  edit(enemy: enemy): void {
     this.formEnemy = { ...enemy };
   }
   submitForm(): void {
@@ -37,13 +33,13 @@ export class EnemiesComponent implements OnInit {
     const newEnemy: any = { ...this.formEnemy };
     if (newEnemy.id == '') {
       this.http
-        .post('http://localhost:3000/enemies/', newEnemy)
+        .post<any>('http://localhost:3000/enemies/', newEnemy)
         .subscribe((data) => {
           this.enemies.push(data);
         });
     } else {
       this.http
-        .put(`http://localhost:3000/enemies/${newEnemy.id}`, newEnemy)
+        .put<any>(`http://localhost:3000/enemies/${newEnemy.id}`, newEnemy)
         .subscribe((data) => {
           let index = -1;
           this.enemies.forEach((e, i) => {
@@ -54,12 +50,6 @@ export class EnemiesComponent implements OnInit {
           this.enemies[index] = data;
         });
     }
-    this.formEnemy = {
-      id: '',
-      name: '',
-      avatar: '',
-      heathling: '',
-      armure: '',
-    };
+    this.formEnemy = new enemy();
   }
 }
