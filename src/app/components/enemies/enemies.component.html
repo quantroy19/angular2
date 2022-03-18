@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <app-form-enemy
+      [dataFormEnemy]="formEnemy"
+      (submitFormE)="submitForm()"
+    ></app-form-enemy>
+  </div>
+  <br />
+  <hr />
+  <table class="table table-hover">
+    <thead>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Avatar</th>
+      <th>Heathling</th>
+      <th>Armure</th>
+      <th>Thao Tac</th>
+    </thead>
+    <tbody *ngIf="enemies.length > 0">
+      <app-enemy-item
+        *ngFor="let e of enemies"
+        [dataEnemy]="e"
+        (removeE)="remove($event)"
+        (editE)="edit($event)"
+      ></app-enemy-item>
+    </tbody>
+  </table>
+</div>

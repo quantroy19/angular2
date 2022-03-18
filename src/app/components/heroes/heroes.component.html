@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <app-form-hero
+      [dataFormHero]="formHero"
+      (submitFormH)="submitForm()"
+    ></app-form-hero>
+  </div>
+  <a routerLink="/add-hero" class="btn btn-sm btn-info mt-3">Link Add hero</a>
+  <br />
+  <hr />
+  <div class="row">
+    <table class="table table-hover">
+      <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Avatar</th>
+        <th>Gender</th>
+        <th>Attack</th>
+        <th>Thao tác</th>
+      </thead>
+      <tbody *ngIf="heroes.length > 0">
+        <app-hero-item
+          *ngFor="let h of heroes"
+          [heroData]="h"
+          (removeH)="remove($event)"
+          (editH)="edit($event)"
+        ></app-hero-item>
+        <!-- <tr *ngFor="let h of heroes">
+          <td>{{ h.id }}</td>
+          <td>{{ h.name }}</td>
+          <td><img [src]="h.avatar" alt="" width="100" /></td>
+          <td>{{ h.gender }}</td>
+          <td>{{ h.attack }}</td>
+          <td>
+            <a (click)="edit(h)" class="btn btn-sm btn-warning">Sửa</a>&nbsp;
+            <a (click)="remove(h)" class="btn btn-sm btn-danger">Xoá</a>
+          </td>
+        </tr> -->
+      </tbody>
+    </table>
+  </div>
+</div>

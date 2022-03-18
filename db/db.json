@@ -4,29 +4,50 @@
       "id": 1,
       "name": "Songoku",
       "avatar": "https://i.pinimg.com/736x/d7/bd/23/d7bd2389fd03889edc309504c3377409.jpg",
-      "gender": "Nu",
+      "gender": 1,
       "attack": 444
     },
     {
       "id": 2,
       "name": "Dog",
       "avatar": "https://images.unsplash.com/photo-1581888227599-779811939961?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-      "gender": "Nam",
+      "gender": 1,
       "attack": 22
     },
     {
-      "name": "Đỗ Minh Quân",
+      "name": "Đỗ Minh ",
       "avatar": "https://image.thanhnien.vn/w660/Uploaded/2022/mtfqu/2021_08_26/spider-man_mnry.jpg",
-      "gender": "Nu",
-      "attack": "321",
+      "gender": 1,
+      "attack": 44455,
       "id": 3
     },
     {
-      "name": "Đỗ Minh Quân",
+      "id": 4,
+      "name": "Đỗ Minh Quân1",
       "avatar": "https://i.pinimg.com/736x/d7/bd/23/d7bd2389fd03889edc309504c3377409.jpg",
-      "gender": "Nam",
-      "attack": 50223333,
-      "id": 4
+      "gender": "1",
+      "attack": "123456"
+    },
+    {
+      "name": "spider man",
+      "avatar": "https://i.pinimg.com/736x/d7/bd/23/d7bd2389fd03889edc309504c3377409.jpg",
+      "gender": 3,
+      "attack": 4422,
+      "id": 6
+    },
+    {
+      "id": 7,
+      "name": "quan111",
+      "avatar": "https://images.unsplash.com/photo-1644982647869-e1337f992828?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&w=1000&q=80",
+      "gender": "1",
+      "attack": "99991"
+    },
+    {
+      "id": 8,
+      "name": "quanq",
+      "avatar": "https://images.unsplash.com/photo-1647320670761-b976b8bddb91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyOXx8fGVufDB8fHx8&w=1000&q=80",
+      "gender": "1",
+      "attack": "33311"
     }
   ],
   "enemies": [
@@ -35,21 +56,21 @@
       "name": "cat",
       "avatar": "https://i.pinimg.com/736x/d7/bd/23/d7bd2389fd03889edc309504c3377409.jpg",
       "heathling": 44,
-      "armure": 43
+      "armure": "438"
     },
     {
       "id": 7,
-      "name": "Đỗ Minh Quân333",
+      "name": "Đỗ Minh Quân",
       "avatar": "https://image.thanhnien.vn/w660/Uploaded/2022/mtfqu/2021_08_26/spider-man_mnry.jpg",
-      "heathling": "11",
-      "armure": "555"
+      "heathling": 33,
+      "armure": 99
     },
     {
       "id": 8,
       "name": "Đỗ Minh Quân",
       "avatar": "https://images.unsplash.com/photo-1581888227599-779811939961",
-      "heathling": "55",
-      "armure": "12345"
+      "heathling": 333,
+      "armure": "333"
     }
   ]
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { isNgTemplate } from '@angular/compiler';
-import { Hero } from '../models/Hero';
+import { Hero } from '../../models/Hero';
 
 @Component({
   selector: 'app-heroes',

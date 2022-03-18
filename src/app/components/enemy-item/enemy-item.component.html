@@ -1,0 +1,11 @@
+<tr>
+  <td>{{ enemy.id }}</td>
+  <td>{{ enemy.name }}</td>
+  <td><img [src]="enemy.avatar" alt="img" width="100" /></td>
+  <td>{{ enemy.heathling }}</td>
+  <td>{{ enemy.armure }}</td>
+  <td>
+    <a (click)="editEnemyData()" class="btn btn-sm btn-warning">Edit</a>&nbsp;
+    <a (click)="removeEnemyData()" class="btn btn-sm btn-danger">Remove</a>
+  </td>
+</tr>

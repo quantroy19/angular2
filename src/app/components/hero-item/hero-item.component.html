@@ -1,0 +1,18 @@
+<tr>
+  <td>{{ heroes.id }}</td>
+  <td>
+    <a [routerLink]="['/detail-hero-component', heroes.id]">{{
+      heroes.name
+    }}</a>
+  </td>
+  <td><img [src]="heroes.avatar" alt="" width="100" /></td>
+  <td>{{ heroes.gender | gender: "lower" }}</td>
+  <td>{{ heroes.attack }}</td>
+  <td>
+    <!-- <a (click)="editH()" class="btn btn-sm btn-warning">Sửa</a>&nbsp; -->
+    <a [routerLink]="['/edit-hero', heroes.id]" class="btn btn-sm btn-warning"
+      >Sửa</a
+    >&nbsp;
+    <a (click)="removeH()" class="btn btn-sm btn-danger">Xoá</a>
+  </td>
+</tr>

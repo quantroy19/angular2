@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { enemy } from '../models/enemy';
+import { enemy } from '../../models/enemy';
 
 @Component({
   selector: 'app-enemies',
@@ -22,16 +22,15 @@ export class EnemiesComponent implements OnInit {
       .delete(`http://localhost:3000/enemies/${enemy.id}`)
       .subscribe((data) => {
         this.enemies = this.enemies.filter((item) => item.id !== enemy.id);
-        // window.location.reload();
       });
   }
   edit(enemy: enemy): void {
     this.formEnemy = { ...enemy };
   }
   submitForm(): void {
-    // console.log(this.formEnemy);
+    console.log(this.formEnemy);
     const newEnemy: any = { ...this.formEnemy };
-    if (newEnemy.id == '') {
+    if (isNaN(newEnemy.id)) {
       this.http
         .post<any>('http://localhost:3000/enemies/', newEnemy)
         .subscribe((data) => {
