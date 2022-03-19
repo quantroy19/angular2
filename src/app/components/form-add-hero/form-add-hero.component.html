@@ -1,12 +1,35 @@
 <form action="" method="post" [formGroup]="newHero">
   <div class="form-group">
     <label for="">ID</label>
-    <input disable type="text" class="form-control" formControlName="id" />
+    <input
+      disable
+      type="text"
+      class="form-control"
+      name="id"
+      formControlName="id"
+    />
   </div>
   <div class="form-group">
     <label for="">Name</label>
-    <input type="text" class="form-control" formControlName="name" />
+    <input cla type="text" class="form-control" formControlName="name" />
+    <div
+      *ngIf="
+        (newHero.controls['name'].invalid &&
+          (newHero.controls['name'].dirty ||
+            newHero.controls['name'].touched)) ||
+        errorFormHero
+      "
+      class="text-danger"
+    >
+      <div *ngIf="newHero.controls['name'].errors?.['required']">
+        Name is required.
+      </div>
+      <div *ngIf="newHero.controls['name'].errors?.['minlength']">
+        Name must be at least 4 characters long.
+      </div>
+    </div>
   </div>
+  <!-- {{ newHero.controls["name"].invalid }} -->
   <div class="form-group">
     <label for="">Avatar</label>
     <input type="text" class="form-control mb-2" formControlName="avatar" />
@@ -14,8 +37,8 @@
   </div>
   <div class="form-group">
     <label for="">Gender</label>
-    <select class="form-control form-select" formControlName="gender">
-      <option selected value="1">Nam</option>
+    <select class="form-select" formControlName="gender">
+      <option value="1">Nam</option>
       <option value="2">Nu</option>
       <option value="3">Khac</option>
     </select>
@@ -23,7 +46,21 @@
   <div class="form-group">
     <label for="">Attack</label>
     <input type="text" class="form-control" formControlName="attack" />
+    <div
+      *ngIf="
+        (newHero.controls['attack'].invalid &&
+          (newHero.controls['attack'].dirty ||
+            newHero.controls['attack'].touched)) ||
+        errorFormHero
+      "
+      class="text-danger"
+    >
+      <div *ngIf="newHero.controls['attack'].errors?.['checkName']">
+        so lon hon 10
+      </div>
+    </div>
   </div>
-  <a (click)="submitFormAdd()" class="btn btn-sm btn-success">Add</a>
+  <a (click)="submitFormAdd()" class="btn btn-sm btn-success mt-4">Add</a>
   <pre>{{ newHero.value | json }}</pre>
+  <pre>{{ errorFormHero }}</pre>
 </form>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { checkName, gte } from './gte.validator';
 
 @Component({
   selector: 'app-form-add-hero',
@@ -14,11 +15,18 @@ export class FormAddHeroComponent implements OnInit {
 
   newHero = new FormGroup({
     id: new FormControl(),
-    name: new FormControl(),
+    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     avatar: new FormControl(),
-    gender: new FormControl(),
-    attack: new FormControl(),
+    gender: new FormControl(1),
+    attack: new FormControl('', [checkName]),
   });
+  get name() {
+    return this.newHero.get('name');
+  }
+  get attack() {
+    return this.newHero.get('attack');
+  }
+
   ngOnInit(): void {
     this.heroId = Number(this.activaRoute.snapshot.paramMap.get('heroId'));
     console.log(this.heroId);
@@ -30,6 +38,7 @@ export class FormAddHeroComponent implements OnInit {
         });
     }
   }
+  errorFormHero = false;
   submitFormAdd() {
     // let newHero = {
     //   name: this.name.value,
@@ -37,12 +46,17 @@ export class FormAddHeroComponent implements OnInit {
     //   gender: this.gender.value,
     //   attack: this.attack.value,
     // };
-    console.log(this.newHero);
+    if (this.newHero.valid) {
+      console.log(this.newHero);
 
-    this.http
-      .post<any>('http://localhost:3000/heroes/', this.newHero.value)
-      .subscribe((data) => {
-        // console.log(data);
-      });
+      this.http
+        .post<any>('http://localhost:3000/heroes/', this.newHero.value)
+        .subscribe((data) => {
+          // console.log(data);
+        });
+    } else {
+      this.errorFormHero = true;
+      alert('data co van de');
+    }
   }
 }
